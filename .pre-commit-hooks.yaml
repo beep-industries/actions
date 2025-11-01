@@ -1,0 +1,62 @@
+# RUST pre-commits
+- id: fmt
+  name: fmt
+  description: Format files with cargo fmt.
+  entry: cargo fmt
+  language: rust
+  types: [rust]
+  args: ["--"]
+  stages:
+    - pre-commit
+    - pre-merge-commit
+    - manual
+- id: cargo-check
+  name: cargo check
+  description: Check the package for errors.
+  entry: cargo check
+  language: rust
+  types: [file]
+  files: ^.*(Cargo\.toml|Cargo\.lock|.*\.rs)$
+  pass_filenames: false
+  stages:
+    - pre-commit
+    - pre-merge-commit
+    - pre-push
+    - manual
+- id: clippy
+  name: clippy
+  description: Lint rust sources
+  entry: cargo clippy
+  language: rust
+  args: ["--", "-D", "warnings"]
+  types: [file]
+  files: ^.*(Cargo\.toml|Cargo\.lock|.*\.rs)$
+  pass_filenames: false
+  stages:
+    - pre-commit
+    - pre-merge-commit
+    - pre-push
+    - manual
+- id: test
+  name: test
+  description: Run tests with cargo test
+  entry: cargo test
+  language: rust
+  types: [rust]
+  args: ["--"]
+  stages:
+    - pre-push
+    - pre-merge-commit
+    - manual
+- id: build
+  name: build
+  description: Build using cargo build
+  language: rust
+  types: [file]
+  files: ^.*(Cargo\.toml|Cargo\.lock|.*\.rs)$
+  stages:
+    - pre-push
+    - pre-merge-commit
+    - manual
+  entry: cargo build
+  pass_filenames: false

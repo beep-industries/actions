@@ -1,4 +1,4 @@
-name: Rust - Build and Push on Main
+name: Build and Push on Main
 
 on:
   workflow_call:

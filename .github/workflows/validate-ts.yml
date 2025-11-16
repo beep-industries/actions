@@ -1,10 +1,7 @@
 name: Typescript Validation 
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_call:
 
 jobs:
   build_and_test:

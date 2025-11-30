@@ -45,5 +45,10 @@ jobs:
       - name: Clippy (lint)
         run: cargo clippy --verbose
 
+      - name: Audit
+        run: |
+          cargo install cargo-audit --locked
+          cargo audit
+
       - name: Test
         run: cargo test --verbose

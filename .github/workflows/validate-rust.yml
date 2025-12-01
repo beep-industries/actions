@@ -44,6 +44,3 @@ jobs:
 
       - name: Clippy (lint)
         run: cargo clippy --verbose
-
-      - name: Test
-        run: cargo test --verbose

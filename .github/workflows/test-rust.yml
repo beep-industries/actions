@@ -20,15 +20,6 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: pnpm
-
-      - name: Setup sccache
-        uses: mozilla-actions/sccache-action@v0.0.4
-
       - name: Cache Rust dependencies
         uses: Swatinem/rust-cache@v2
 

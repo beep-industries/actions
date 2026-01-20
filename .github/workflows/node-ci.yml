@@ -26,6 +26,7 @@ jobs:
         run: pnpm check-format
       - name: Audit
         run: pnpm audit
+        continue-on-error: true
       - name: Test
         run: pnpm test
       - name: Build

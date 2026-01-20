@@ -25,7 +25,7 @@ jobs:
       - name: Format check
         run: pnpm check-format
       - name: Audit
-        run: pnpm audit
+        run: pnpm audit --audit-level=high
       - name: Test
         run: pnpm test
       - name: Build

@@ -47,7 +47,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Analyse CVE avec Trivy
+      - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.70.0
         with:
           image-ref: "${{ fromJSON(steps.meta.outputs.json).tags[0] }}"

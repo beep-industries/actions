@@ -48,7 +48,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Analyse CVE avec Trivy
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@0.70.0
         with:
           image-ref: "${{ fromJSON(steps.meta.outputs.json).tags[0] }}"
           format: "table"

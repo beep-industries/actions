@@ -58,13 +58,10 @@ jobs:
           severity: "CRITICAL,HIGH"
 
       - name: Push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
+        run: |
+          for tag in $(echo "${{ steps.meta.outputs.tags }}" | tr '\n' ' '); do
+            docker push "$tag"
+          done
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

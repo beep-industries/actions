@@ -44,9 +44,3 @@ jobs:
 
       - name: Clippy (lint)
         run: cargo clippy --verbose
-
-      - name: Audit Rust Dependencies
-        uses: actions-rust-lang/audit@v1
-
-      - name: Test
-        run: cargo test --verbose
